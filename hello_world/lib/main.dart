@@ -6,8 +6,10 @@ void main() {
     // material은 디자인과 관련된 기능 제공
     MaterialApp(
       home: Scaffold( // Scaffold 위젯
-        body: Text( // 텍스트 출력
-          'Hello Code Factory',
+        body: Center(
+          child: Text( // 텍스트 출력
+            '텍스트 중앙정렬 테스트',
+          ),
         ),
       ),
     )
@@ -136,4 +138,4 @@ void main() {
 //       ), // This trailing comma makes auto-formatting nicer for build methods.
 //     );
 //   }
-}
+// }
