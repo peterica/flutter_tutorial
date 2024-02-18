@@ -4,7 +4,7 @@ void main() {
   runApp(SplashScreen());
 }
 
-// Container와 BoxDecoration 사용방법
+// image 추가 방법
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context){
@@ -12,10 +12,10 @@ class SplashScreen extends StatelessWidget {
       home: Scaffold(
         body: Container(
           decoration: BoxDecoration(
-            color: Colors.blue,
+            color: Colors.white,
           ),
           child: Center(
-            child: Text('Splash Screen'),
+            child: Image.asset('assets/main_intro.png'),
           ),
         )
       ),
