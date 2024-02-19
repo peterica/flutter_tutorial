@@ -1,7 +1,7 @@
 # image_carousel
 
-PageView: 가로 세로로 스와이프해 화면이 변경됨
-Timer: 일정 시간을 기다리거나 주기적으로 반복
+PageView: 가로 세로로 스와이프해 화면이 변경됨  
+Timer: 일정 시간을 기다리거나 주기적으로 반복  
 StatefulWidget: 상태가 변경되는 경우 위젯의 생명주기를 관리합니다.
 
 ## Getting Started
