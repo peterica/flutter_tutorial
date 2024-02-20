@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:u_and_i/screen/home_screen.dart';
 
 void main() {
   runApp(
     MaterialApp(
+      // 한글 다이어그램 지정
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,   // for 안드로이드
+        GlobalCupertinoLocalizations.delegate,  // for IOS
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('ko', 'KO'),
+        const Locale('en', "US"),
+      ],
       theme: ThemeData(  // 테마를 지정
           /*
             https://api.flutter.dev/flutter/material/ThemeData-class.html
