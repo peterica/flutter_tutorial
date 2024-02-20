@@ -52,7 +52,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // 하트 기능 생성
   void onHeartPressed(){
-    print('Heart beating!!');
+    // print('Heart beating!!');
+
+    // 하트 클릭 시 하루 씩 시작일을 빼기
+    setState(() {
+      firstDay = firstDay.subtract(Duration(days: 1));
+    });
   }
 
 }
