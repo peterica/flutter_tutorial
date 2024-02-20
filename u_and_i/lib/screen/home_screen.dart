@@ -40,10 +40,29 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+// _DDay 위젯
 class _DDay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Text('DDay Widget');
+    return Column(
+      children: [
+        const SizedBox(height: 80),
+        Text('U&I'),
+        const SizedBox(height: 16),
+        Text('우리 처음 만난 날'),
+        Text('2024.02.20'),
+        const SizedBox(height: 16),
+        IconButton(
+          iconSize: 60,
+          onPressed: (){},
+          icon: Icon(
+            Icons.favorite,
+          ),
+        ),
+        const SizedBox(height: 16),
+        Text('D+365'),
+      ],
+    );
   }
 }
 
@@ -61,5 +80,3 @@ class _CoupleImage extends StatelessWidget {
     );
   }
 }
-
-
