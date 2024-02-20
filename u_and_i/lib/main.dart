@@ -13,7 +13,6 @@ void main() {
       ],
       supportedLocales: [
         const Locale('ko', 'KO'),
-        const Locale('en', "US"),
       ],
       theme: ThemeData(  // 테마를 지정
           /*
