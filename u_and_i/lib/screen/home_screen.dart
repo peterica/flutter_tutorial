@@ -25,7 +25,10 @@ class _HomeScreenState extends State<HomeScreen> {
           //  반대축 최대 크기로 늘리기
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            _DDay(),
+입            // 하트 기능을 주입
+            _DDay(
+              onHeartPressed: onHeartPressed,
+            ),
             _CoupleImage(),
           ],
         ),
@@ -45,10 +48,24 @@ class _HomeScreenState extends State<HomeScreen> {
       ),*/
     );
   }
+
+  // 하트 기능 생성
+  void onHeartPressed(){
+    print('Heart beating!!');
+  }
+
 }
 
 // _DDay 위젯
 class _DDay extends StatelessWidget {
+
+  final GestureTapCallback onHeartPressed;
+
+  // 하트 기능을 부모에서 주입받는다.
+  _DDay({
+    required this.onHeartPressed,
+  });
+
   @override
   Widget build(BuildContext context) {
 
@@ -74,7 +91,7 @@ class _DDay extends StatelessWidget {
         const SizedBox(height: 10),
         IconButton(
           iconSize: 60,
-          onPressed: (){},
+          onPressed: onHeartPressed, // 하트 기능을 버튼에 주입
           icon: Icon(
             Icons.favorite,
             color: Colors.red,
