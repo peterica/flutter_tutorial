@@ -44,23 +44,41 @@ class HomeScreen extends StatelessWidget {
 class _DDay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    // 테마 불러오기
+    final textTheme = Theme.of(context).textTheme;
+
     return Column(
       children: [
-        const SizedBox(height: 80),
-        Text('U&I'),
-        const SizedBox(height: 16),
-        Text('우리 처음 만난 날'),
-        Text('2024.02.20'),
-        const SizedBox(height: 16),
+        const SizedBox(height: 10),
+        Text(
+          'U&I',
+          style: textTheme.headlineLarge,
+        ),
+        const SizedBox(height: 10),
+        Text(
+          '우리 처음 만난 날',
+          style: textTheme.bodyMedium,
+        ),
+        Text(
+          '2024.02.20',
+          style: textTheme.bodyMedium,
+        ),
+        const SizedBox(height: 10),
         IconButton(
           iconSize: 60,
           onPressed: (){},
           icon: Icon(
             Icons.favorite,
+            color: Colors.red,
           ),
         ),
-        const SizedBox(height: 16),
-        Text('D+365'),
+        const SizedBox(height: 10),
+        Text(
+          'D+365',
+          style: textTheme.headlineMedium,
+        ),
+        const SizedBox(height: 30),
       ],
     );
   }
@@ -70,13 +88,15 @@ class _DDay extends StatelessWidget {
 class _CoupleImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Image.asset(
-        'asset/img/middle_image.png',
+    return Expanded( // 오버플로 해결 => Expanded
+      child: Center(
+        child: Image.asset(
+          'asset/img/middle_image.png',
 
-        // 화면 반만큼 높이 설정
-        height: MediaQuery.of(context).size.height / 2,
-      ),
+          // 화면 반만큼 높이 설정
+          height: MediaQuery.of(context).size.height / 2,
+        ),
+      )
     );
   }
 }
