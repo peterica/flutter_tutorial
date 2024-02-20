@@ -62,17 +62,22 @@ class _HomeScreenState extends State<HomeScreen> {
         return Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            color: Colors.white,
+            color: Colors.white, // 흰색 배경
             height: 300,
             child: CupertinoDatePicker(
               // 시간 빼고 날짜만 선택
               mode: CupertinoDatePickerMode.date,
-              onDateTimeChanged: (DateTime date){},
+              // 선택한 날짜 데이터 받아 firstDay에 반경하기
+              onDateTimeChanged: (DateTime date){
+                setState(() {
+                  firstDay = date;
+                });
+              },
             ),
           ),
         );
       },
-      barrierDismissible: true,
+      barrierDismissible: true, // 외부 클릭 시 닫음
     );
   }
 
