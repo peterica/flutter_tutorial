@@ -1,3 +1,4 @@
+import 'package:calendar_scheduler/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -5,7 +6,8 @@ import 'package:table_calendar/table_calendar.dart';
 void main() {
   runApp(
     MaterialApp(
-      home: Scaffold(
+      home: HomeScreen(),
+      /*home: Scaffold(
         // Calendar 위젯
         body: TableCalendar(
 
@@ -46,7 +48,7 @@ void main() {
 
         ),
 
-      ),
+      ),*/
     )
   );
 }
