@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_localizations/flutter_localizations.dart'; // 다국어지원
 import 'package:intl/intl.dart'; // Dateformat 용
 
 class HomeScreen extends StatefulWidget {
@@ -11,7 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  DateTime firstDay = DateTime.now();
+  DateTime firstDay = DateFormat('yyyy-MM-dd').parse('2014-11-11');
 
   // 홈 스크린 UI 구현하기
   @override
@@ -93,7 +92,6 @@ class _HomeScreenState extends State<HomeScreen> {
       barrierDismissible: true, // 외부 클릭 시 닫음
     );
   }
-
 }
 
 // _DDay 위젯

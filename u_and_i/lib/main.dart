@@ -14,6 +14,7 @@ void main() {
       supportedLocales: [
         const Locale('ko', 'KO'),
       ],
+      locale: Locale('ko'),
       theme: ThemeData(  // 테마를 지정
           /*
             https://api.flutter.dev/flutter/material/ThemeData-class.html
