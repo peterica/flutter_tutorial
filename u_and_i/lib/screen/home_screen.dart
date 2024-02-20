@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -52,12 +53,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // 하트 기능 생성
   void onHeartPressed(){
-    // print('Heart beating!!');
-
-    // 하트 클릭 시 하루 씩 시작일을 빼기
-    setState(() {
-      firstDay = firstDay.subtract(Duration(days: 1));
-    });
+    // 쿠퍼티노 다이어로그 생성자
+    showCupertinoDialog(
+        context: context,
+        builder: (BuildContext context){
+          // 날짜 선택하는 다이얼로그
+          return CupertinoDatePicker(
+            // 시간 빼고 날짜만 선택
+            mode: CupertinoDatePickerMode.date,
+            onDateTimeChanged: (DateTime date){},
+          );
+        }
+    );
   }
 
 }
