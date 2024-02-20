@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_localizations/flutter_localizations.dart'; // 다국어지원
+import 'package:intl/intl.dart'; // Dateformat 용
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -59,6 +60,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
       context: context,
       builder: (BuildContext context){
+        // 설정 날짜
+        final initDate =
+          DateFormat('yyyy-MM-dd').parse('2014-11-11');
+
         // 날짜 다이얼로그 정렬
         return Align(
           alignment: Alignment.bottomCenter,
@@ -66,6 +71,13 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Colors.white, // 흰색 배경
             height: 300,
             child: CupertinoDatePicker(
+              // 미래 날짜 선택 방지
+              // https://api.flutter.dev/flutter/cupertino/CupertinoDatePicker/maximumDate.html
+              maximumYear: DateTime.now().year,
+              maximumDate: DateTime.now(),
+              minimumYear: 2000,
+              initialDateTime: initDate,
+              
               // 시간 빼고 날짜만 선택
               mode: CupertinoDatePickerMode.date,
               // 선택한 날짜 데이터 받아 firstDay에 반경하기
