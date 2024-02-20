@@ -25,9 +25,10 @@ class _HomeScreenState extends State<HomeScreen> {
           //  반대축 최대 크기로 늘리기
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-입            // 하트 기능을 주입
+            // 하트 기능을 주입
             _DDay(
               onHeartPressed: onHeartPressed,
+              firstDay: firstDay, // 시작일 주
             ),
             _CoupleImage(),
           ],
@@ -60,10 +61,12 @@ class _HomeScreenState extends State<HomeScreen> {
 class _DDay extends StatelessWidget {
 
   final GestureTapCallback onHeartPressed;
+  final DateTime firstDay; // 시작일 생성
 
   // 하트 기능을 부모에서 주입받는다.
   _DDay({
     required this.onHeartPressed,
+    required this.firstDay, // 시작일 입력받기
   });
 
   @override
@@ -71,6 +74,7 @@ class _DDay extends StatelessWidget {
 
     // 테마 불러오기
     final textTheme = Theme.of(context).textTheme;
+    final now = DateTime.now(); // 현재 시간 생성
 
     return Column(
       children: [
@@ -85,7 +89,7 @@ class _DDay extends StatelessWidget {
           style: textTheme.bodyMedium,
         ),
         Text(
-          '2024.02.20',
+          '${firstDay.year}.${firstDay.month}.${firstDay.day}',
           style: textTheme.bodyMedium,
         ),
         const SizedBox(height: 10),
@@ -99,7 +103,7 @@ class _DDay extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         Text(
-          'D+365',
+          'D+${DateTime(now.year, now.month, now.day).difference(firstDay).inDays+1}',
           style: textTheme.headlineMedium,
         ),
         const SizedBox(height: 30),
