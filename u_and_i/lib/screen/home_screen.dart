@@ -55,15 +55,24 @@ class _HomeScreenState extends State<HomeScreen> {
   void onHeartPressed(){
     // 쿠퍼티노 다이어로그 생성자
     showCupertinoDialog(
-        context: context,
-        builder: (BuildContext context){
-          // 날짜 선택하는 다이얼로그
-          return CupertinoDatePicker(
-            // 시간 빼고 날짜만 선택
-            mode: CupertinoDatePickerMode.date,
-            onDateTimeChanged: (DateTime date){},
-          );
-        }
+
+      context: context,
+      builder: (BuildContext context){
+        // 날짜 다이얼로그 정렬
+        return Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            color: Colors.white,
+            height: 300,
+            child: CupertinoDatePicker(
+              // 시간 빼고 날짜만 선택
+              mode: CupertinoDatePickerMode.date,
+              onDateTimeChanged: (DateTime date){},
+            ),
+          ),
+        );
+      },
+      barrierDismissible: true,
     );
   }
 
