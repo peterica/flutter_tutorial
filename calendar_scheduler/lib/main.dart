@@ -1,9 +1,14 @@
 import 'package:calendar_scheduler/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 // Table Calendar 사용법
-void main() {
+void main()  async {
+  // 플러터 프레임 Ready 대기
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting(); // DateFormat 다국어 지원
+
   runApp(
     MaterialApp(
       home: HomeScreen(),

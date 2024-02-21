@@ -14,6 +14,9 @@ class MainCalendar extends StatelessWidget {
   Widget build(BuildContext context) {
     // 달력 구현하기
     return TableCalendar(
+      // 한국어
+      locale: 'ko_kr',
+
       // 날짜 선택 시 실행
       onDaySelected: onDaySelected,
 
