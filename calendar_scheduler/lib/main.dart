@@ -2,12 +2,21 @@ import 'package:calendar_scheduler/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:calendar_scheduler/database/drift_database.dart';
+import 'package:get_it/get_it.dart';
+
 
 // Table Calendar 사용법
 void main()  async {
   // 플러터 프레임 Ready 대기
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDateFormatting(); // DateFormat 다국어 지원
+
+  // 드리프트 초기화
+  final database = LocalDatabase(); // 데이터베이스 생성
+
+  // GetIt에 데이터베이스 주입
+  GetIt.I.registerSingleton<LocalDatabase>(database);
 
   runApp(
     MaterialApp(
