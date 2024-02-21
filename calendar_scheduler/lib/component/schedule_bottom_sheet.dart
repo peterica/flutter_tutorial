@@ -16,8 +16,8 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
     
     return SafeArea(
       child: Container(
-        height: MediaQuery.of(context).size.height / 2 +
-            bottomInset, // ➋ 화면 반 높이에 키보드 높이 추가하기
+        // 화면 반 높이에 키보드 높이 추가하기
+        height: MediaQuery.of(context).size.height / 2 + bottomInset,
         color: Colors.white,
         child: Padding(
           padding: EdgeInsets.only(
@@ -61,12 +61,11 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
                 width: double.infinity,
                 child: ElevatedButton(
                   // [저장] 버튼
-                  // ➌ [저장] 버튼
                   onPressed: onSavePressed,
                   style: ElevatedButton.styleFrom(
                     primary: PRIMARY_COLOR,
                   ),
-                  child: Text('저장'),
+                  child: Text('저장하기'),
                 ),
               ),
             ],
@@ -76,5 +75,7 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
     );
   }
 
-  void onSavePressed() {}
+  void onSavePressed() {
+    print('저장버튼 클릭!!');
+  }
 }
