@@ -30,7 +30,10 @@ class _HomeScreenState extends State<HomeScreen> {
           showModalBottomSheet(
             context: context,
             isDismissible: true,
-            builder: (_) => ScheduleBottomSheet(),
+            builder: (_) => ScheduleBottomSheet(
+              // 선택한 날짜 넘겨주기
+              selectedDate: selectedDate,
+            ),
             // 키보드 가림 해결
             isScrollControlled: true,
           );
