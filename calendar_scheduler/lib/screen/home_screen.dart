@@ -53,11 +53,17 @@ class _HomeScreenState extends State<HomeScreen> {
               onDaySelected: onDaySelected,
             ),
             SizedBox(height: 8),
-            // 선택 일정 갯수 표시
-            TodayBanner(
-              selectedDate: selectedDate,
-              count: 0,
+            // 선택 일정 갯수 표시, 일정 개수 반영하기
+            StreamBuilder<List<Schedule>>(
+              stream: GetIt.I<LocalDatabase>().watchSchedules(selectedDate),
+              builder: (context, snapshot) {
+                return TodayBanner(
+                  selectedDate: selectedDate,
+                  count: snapshot.data?.length ?? 0,
+                );
+              }
             ),
+
             SizedBox(height: 8),
             Expanded(   // 남는 공간을 모두 차지하기
               // database의 데이터가 stream으로 넘어옴.
