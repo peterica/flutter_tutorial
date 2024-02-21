@@ -1,3 +1,4 @@
+import 'package:calendar_scheduler/component/schedule_card.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar_scheduler/component/main_calendar.dart';
 
@@ -26,6 +27,12 @@ class _HomeScreenState extends State<HomeScreen> {
             MainCalendar(
               selectedDate: selectedDate, // 선택된 날짜 전달
               onDaySelected: onDaySelected,
+            ),
+            // 일정 카드
+            ScheduleCard(
+                startTime: 12,
+                endTime: 15,
+                content: '일정을 샘플로 만들어보기'
             ),
           ],
         ),
