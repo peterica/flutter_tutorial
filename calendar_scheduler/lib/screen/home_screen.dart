@@ -74,19 +74,25 @@ class _HomeScreenState extends State<HomeScreen> {
                   return ListView.builder(
                     itemCount: snapshot.data!.length,
                     itemBuilder: (context, index) {
-
                       final schedule = snapshot.data![index];
 
-                      // UI개선, 좌우로 패딩
-                      return Padding(
-                        padding: const EdgeInsets.only(
-                          bottom: 8, left: 8
+                      return Dismissible(
+                        key: ObjectKey(schedule.id), // 유니크 키값
+                        direction: DismissDirection.startToEnd, // 왼쪽에서 오른쪽으로 밀기
+                        onDismissed: (DismissDirection direction){
+                          GetIt.I<LocalDatabase>()
+                              .removeSchedule(schedule.id);
+                        },
+
+                        child: Padding( // UI개선, 좌우로 패딩
+                          padding: const EdgeInsets.only( bottom: 8, left: 8 ),
+                          child: ScheduleCard(
+                            startTime: schedule.startTime,
+                            endTime: schedule.endTime,
+                            content: schedule.content,
+                          ),
                         ),
-                        child: ScheduleCard(
-                          startTime: schedule.startTime,
-                          endTime: schedule.endTime,
-                          content: schedule.content,
-                        ),
+
                       );
                     },
                   );
