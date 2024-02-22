@@ -1,0 +1,17 @@
+version: "1.0"
+
+services:
+  dev:
+    container_name: node_test
+    image: node:19-alpine
+    command:
+      - /bin/sh
+      - -c
+      - |
+        cd /home/node 
+        npm install --silent
+        npm run start:dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/home/node
